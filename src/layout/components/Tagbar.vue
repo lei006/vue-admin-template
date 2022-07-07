@@ -1,5 +1,4 @@
 <template>
-  <div class="tagbar-box">
     <el-tabs v-model="editableTabsValue" type="card" closable editable @tab-remove="removeTab" @edit="handleTabsEdit">
       <el-tab-pane
         v-for="(item, index) in editableTabs"
@@ -8,7 +7,6 @@
         :name="item.name"
       />
     </el-tabs>
-  </div>
 </template>
 
 <script>
@@ -98,8 +96,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.tagbar-box .el-tabs__header {
-    margin: 0 0 5px;
-}
 
 </style>

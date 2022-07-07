@@ -3,11 +3,15 @@
     <div v-if="device==='mobile'&&sidebar.opened" class="drawer-bg" @click="handleClickOutside" />
     <sidebar class="sidebar-container" />
     <div class="main-container">
-      <div :class="{'fixed-header':fixedHeader}">
+      <div class="navbar-box">
         <navbar />
       </div>
-      <Tagbar />
-      <app-main />
+      <div class="tagbar-box">
+        <Tagbar />
+      </div>
+      <div class="app-main-box">
+        <app-main />
+      </div>
     </div>
     <FloatPanel />
   </div>
@@ -93,5 +97,18 @@ export default {
 
   .mobile .fixed-header {
     width: 100%;
+  }
+
+  .navbar-box{
+    width: 100%;
+    height: 50px;
+  }
+  .tagbar-box{
+    width: 100%;
+    height: 40px;
+  }
+  .app-main-box{
+    width: 100%;
+    flex:1;
   }
 </style>
