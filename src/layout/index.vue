@@ -8,11 +8,12 @@
       </div>
       <app-main />
     </div>
+    <FloatPanel></FloatPanel>
   </div>
 </template>
 
 <script>
-import { Navbar, Sidebar, AppMain } from './components'
+import { Navbar, Sidebar, AppMain, FloatPanel } from './components'
 import ResizeMixin from './mixin/ResizeHandler'
 
 export default {
@@ -20,7 +21,8 @@ export default {
   components: {
     Navbar,
     Sidebar,
-    AppMain
+    AppMain,
+    FloatPanel
   },
   mixins: [ResizeMixin],
   computed: {
