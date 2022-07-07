@@ -3,17 +3,15 @@
     <hamburger :is-active="sidebar.opened" class="hamburger-container not-allow-select" @toggleClick="toggleSideBar" />
     <breadcrumb class="breadcrumb-container" />
     <div class="navbar-search-box">
-      
-      <el-input size="small" placeholder="请输入内容" v-model="inputSearchText" class="input-with-select">
-        <el-select v-model="select" slot="prepend" placeholder="请选择" style="width:100px">
-          <el-option label="餐厅名" value="1"></el-option>
-          <el-option label="订单号" value="2"></el-option>
-          <el-option label="用户电话" value="3"></el-option>
+
+      <el-input v-model="inputSearchText" size="small" placeholder="请输入内容" class="input-with-select">
+        <el-select slot="prepend" v-model="select" placeholder="请选择" style="width:100px">
+          <el-option label="餐厅名" value="1" />
+          <el-option label="订单号" value="2" />
+          <el-option label="用户电话" value="3" />
         </el-select>
-        <el-button slot="append" icon="el-icon-search"></el-button>
+        <el-button slot="append" icon="el-icon-search" />
       </el-input>
-
-
 
     </div>
     <div class="right-menu not-allow-select">
@@ -65,8 +63,8 @@ export default {
   data() {
     return {
       storeLayout: {},
-      select:"1",
-      inputSearchText:"1111111111111"
+      select: '1',
+      inputSearchText: '1111111111111'
     }
   },
   computed: {
@@ -124,7 +122,7 @@ export default {
   .navbar-search-box{
     flex:1;
     height: 100%;
-    
+
     padding: 10px 40px 10px 40px;
 
     display: flex;
@@ -150,7 +148,6 @@ export default {
     margin: 3px 3px;
   }
 }
-
 
   .el-select .el-input {
     width: 130px;

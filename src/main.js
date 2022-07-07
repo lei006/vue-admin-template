@@ -33,11 +33,8 @@ Vue.use(ElementUI, { locale })
 // 如果想要中文版 element-ui，按如下方式声明
 // Vue.use(ElementUI)
 
-
-
 import VueCompositionAPI from '@vue/composition-api'
 Vue.use(VueCompositionAPI)
-
 
 // 引入 pinia
 import { createPinia, PiniaVuePlugin } from 'pinia'

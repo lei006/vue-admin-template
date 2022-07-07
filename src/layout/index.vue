@@ -70,13 +70,12 @@ export default {
 
     display: flex;
   }
-  
+
   .sidebar-container{
     height: 100%;
     width: 160px;
     background-color: rgb(48,65,86);
   }
-
 
   .main-container{
     flex:1;
