@@ -7,7 +7,7 @@
         <navbar />
       </div>
       <div class="tagbar-box">
-        <Tagbar />
+        <TagsView />
       </div>
       <div class="app-main-box">
         <app-main />
@@ -18,7 +18,7 @@
 </template>
 
 <script>
-import { Navbar, Sidebar, AppMain, FloatPanel, Tagbar } from './components'
+import { Navbar, Sidebar, AppMain, FloatPanel, Tagbar,TagsView } from './components'
 import ResizeMixin from './mixin/ResizeHandler'
 
 export default {
@@ -28,6 +28,7 @@ export default {
     Sidebar,
     AppMain,
     Tagbar,
+    TagsView,
     FloatPanel
   },
   mixins: [ResizeMixin],
