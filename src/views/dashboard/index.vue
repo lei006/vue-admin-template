@@ -1,6 +1,6 @@
 <template>
   <div class="dashboard-container">
-    <div class="dashboard-text">name: {{ name }}</div>
+    <div v-for="item in 20" :key="item" class="dashboard-text">name: {{ name }}</div>
   </div>
 </template>
 

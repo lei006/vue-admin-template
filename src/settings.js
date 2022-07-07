@@ -12,5 +12,16 @@ module.exports = {
    * @type {boolean} true | false
    * @description Whether show the logo in sidebar
    */
-  sidebarLogo: false
+  sidebarLogo: true,
+
+  devApiPrefix: 'vue-admin-template',
+  ProApiPrefix: 'vue-admin-template',
+
+  getApiPrefix: function() {
+    if (process.env.NODE_ENV === 'development') {
+      return this.devApiPrefix
+    }
+
+    return this.ProApiPrefix
+  }
 }
