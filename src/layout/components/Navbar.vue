@@ -7,20 +7,20 @@
     <div class="right-menu">
       <el-button v-if="storeLayout.testBtn" type="text" size="mini" class="system-menu-item" @click="onSwitchHideBtn">缩小</el-button>
       <el-button v-if="!storeLayout.testBtn" type="text" size="mini" class="system-menu-item" @click="onSwitchHideBtn">放大</el-button>
-      <el-button v-if="storeLayout.testBtn" type="text" class="system-menu-item"  size="mini">测试按钮1</el-button>
-      <el-button v-if="storeLayout.testBtn" type="text" class="system-menu-item"  size="mini">测试按钮2</el-button>
-      <el-button v-if="storeLayout.testBtn" type="text" class="system-menu-item"  size="mini">测试按钮3</el-button>
-      <el-button v-if="storeLayout.testBtn" type="text" class="system-menu-item"  size="mini">测试按钮4</el-button>
+      <el-button v-if="storeLayout.testBtn" type="text" class="system-menu-item" size="mini">测试按钮1</el-button>
+      <el-button v-if="storeLayout.testBtn" type="text" class="system-menu-item" size="mini">测试按钮2</el-button>
+      <el-button v-if="storeLayout.testBtn" type="text" class="system-menu-item" size="mini">测试按钮3</el-button>
+      <el-button v-if="storeLayout.testBtn" type="text" class="system-menu-item" size="mini">测试按钮4</el-button>
       <div class="system-menu-item margin-right-mini">
-      <el-dropdown  trigger="click">
-        <el-button type="text" size="mini" >超小按钮</el-button>
-        <el-dropdown-menu slot="dropdown" class="user-dropdown">
-          <router-link to="/">
-            <el-dropdown-item>
-               个人中心
-            </el-dropdown-item>
-          </router-link>
-          <!--
+        <el-dropdown trigger="click">
+          <el-button type="text" size="mini">超小按钮</el-button>
+          <el-dropdown-menu slot="dropdown" class="user-dropdown">
+            <router-link to="/">
+              <el-dropdown-item>
+                个人中心
+              </el-dropdown-item>
+            </router-link>
+            <!--
           <a target="_blank" href="https://github.com/PanJiaChen/vue-admin-template/">
             <el-dropdown-item>Github</el-dropdown-item>
           </a>
@@ -28,11 +28,11 @@
             <el-dropdown-item>Docs</el-dropdown-item>
           </a>
           -->
-          <el-dropdown-item divided @click.native="logout">
-            <span style="display:block;">退出登录</span>
-          </el-dropdown-item>
-        </el-dropdown-menu>
-      </el-dropdown>
+            <el-dropdown-item divided @click.native="logout">
+              <span style="display:block;">退出登录</span>
+            </el-dropdown-item>
+          </el-dropdown-menu>
+        </el-dropdown>
       </div>
     </div>
   </div>

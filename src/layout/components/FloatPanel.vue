@@ -1,14 +1,12 @@
 <template>
   <ul class="vab-theme-setting">
 
-    <li ><a ><i class="el-icon-share"></i><p >主题配置</p></a></li>
-    <li ><a ><i class="el-icon-phone" aria-hidden="true" ></i><p >随机换肤</p></a></li>
-    <li ><a ><i class="el-icon-picture-outline-round" aria-hidden="true" ></i><p >购买源码</p></a></li>
-    <li ><a ><i class="el-icon-s-promotion" aria-hidden="true" ></i><p >拷贝源码</p></a></li>
-    <li ><a ><i class="el-icon-s-opportunity" aria-hidden="true" ></i><p >清理缓存</p></a></li>
+    <li><a><i class="el-icon-share" /><p>主题配置</p></a></li>
+    <li><a><i class="el-icon-phone" aria-hidden="true" /><p>随机换肤</p></a></li>
+    <li><a><i class="el-icon-picture-outline-round" aria-hidden="true" /><p>购买源码</p></a></li>
+    <li><a><i class="el-icon-s-promotion" aria-hidden="true" /><p>拷贝源码</p></a></li>
+    <li><a><i class="el-icon-s-opportunity" aria-hidden="true" /><p>清理缓存</p></a></li>
   </ul>
-
-
 
 </template>
 
@@ -21,7 +19,6 @@ export default {
   }
 }
 </script>
-
 
 <style lang="scss" scoped>
 
@@ -41,8 +38,6 @@ export default {
     box-shadow: 0 0 50px 0 rgba(82,63,105,.15);
     transform: translateY(-50%);
 }
-
-
 
 .vab-theme-setting {
     position: fixed;
@@ -149,6 +144,5 @@ export default {
     text-overflow: ellipsis;
     white-space: nowrap
 }
-
 
 </style>

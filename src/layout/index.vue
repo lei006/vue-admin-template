@@ -6,9 +6,11 @@
       <div :class="{'fixed-header':fixedHeader}">
         <navbar />
       </div>
-      <app-main />
+      <el-scrollbar>
+        <app-main />
+      </el-scrollbar>
     </div>
-    <FloatPanel></FloatPanel>
+    <FloatPanel />
   </div>
 </template>
 
