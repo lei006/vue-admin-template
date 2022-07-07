@@ -1,9 +1,11 @@
 <template>
-  <section class="app-main">
-    <transition name="fade-transform" mode="out-in">
-      <router-view :key="key" />
-    </transition>
-  </section>
+  <el-scrollbar>
+    <section class="app-main">
+      <transition name="fade-transform" mode="out-in">
+        <router-view :key="key" />
+      </transition>
+    </section>
+  </el-scrollbar>
 </template>
 
 <script>
@@ -20,7 +22,7 @@ export default {
 <style scoped>
 .app-main {
   /*50 = navbar  */
-  height: calc(100vh - 50px);
+  height: calc(100vh - 100px);
   width: 100%;
   position: relative;
 }

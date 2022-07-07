@@ -6,16 +6,15 @@
       <div :class="{'fixed-header':fixedHeader}">
         <navbar />
       </div>
-      <el-scrollbar>
-        <app-main />
-      </el-scrollbar>
+      <Tagbar />
+      <app-main />
     </div>
     <FloatPanel />
   </div>
 </template>
 
 <script>
-import { Navbar, Sidebar, AppMain, FloatPanel } from './components'
+import { Navbar, Sidebar, AppMain, FloatPanel, Tagbar } from './components'
 import ResizeMixin from './mixin/ResizeHandler'
 
 export default {
@@ -24,6 +23,7 @@ export default {
     Navbar,
     Sidebar,
     AppMain,
+    Tagbar,
     FloatPanel
   },
   mixins: [ResizeMixin],

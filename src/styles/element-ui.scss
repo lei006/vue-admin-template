@@ -51,3 +51,20 @@
 .el-dropdown-menu__item {
   line-height: 28px;
 }
+
+.el-tabs__header {
+  margin: 0 0 0px;
+  padding-right: 10px;
+}
+
+
+.el-tabs__item {
+  padding: 0 15px;
+  height: 30px;
+  line-height: 30px;
+}
+
+.el-tabs--card>.el-tabs__header .el-tabs__item .el-icon-close {
+  width: 14px;
+}
+
