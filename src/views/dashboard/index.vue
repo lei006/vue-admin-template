@@ -1,26 +1,30 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../../assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App" />
+  <div class="dashboard-container">
+    <div class="dashboard-text">name: {{ name }}</div>
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from "vue";
-import HelloWorld from "../../components/HelloWorld.vue"; // @ is an alias to /src
+<script>
+import { mapGetters } from 'vuex'
 
-export default defineComponent({
-  name: "HomeView",
-  components: {
-    HelloWorld,
-  },
-});
+export default {
+  name: 'Dashboard',
+  computed: {
+    ...mapGetters([
+      'name'
+    ])
+  }
+}
 </script>
 
 <style lang="scss" scoped>
-.home{
-    text-align: center;
+.dashboard {
+  &-container {
+    margin: 30px;
+  }
+  &-text {
+    font-size: 30px;
+    line-height: 46px;
+  }
 }
-
-
 </style>

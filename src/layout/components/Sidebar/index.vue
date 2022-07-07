@@ -1,123 +1,56 @@
 <template>
-  <div class="side-bar">
-    <el-tabs :tab-position="tabPosition" style="height: 100%" class="demo-tabs">
-        <el-tab-pane label="Logo">
-            <template v-slot:label>
-                <div class="tabs-button-box">
-                    <img class="app-logo" alt="Vue logo" src="../../../assets/logo.png" />
-                </div>
-            </template>
-        </el-tab-pane>
-        <el-tab-pane v-for="panel in panelArray" :key="panel" label="User">
-            <template v-slot:label>
-                <div class="tabs-button-box">
-                    <div class="tabs-button-item" :class="{'is-active':panel.active}" @click="onItemClick(panel)">
-                        <el-icon size="20px"><Apple /></el-icon>
-                        {{panel.title}}
-                    </div>
-                </div>
-            </template>
-
-        </el-tab-pane>
-    </el-tabs>
-</div>
+  <div :class="{'has-logo':showLogo}">
+    <logo v-if="showLogo" :collapse="isCollapse" />
+    <el-scrollbar wrap-class="scrollbar-wrapper">
+      <el-menu
+        :default-active="activeMenu"
+        :collapse="isCollapse"
+        :background-color="variables.menuBg"
+        :text-color="variables.menuText"
+        :unique-opened="false"
+        :active-text-color="variables.menuActiveText"
+        :collapse-transition="false"
+        mode="vertical"
+      >
+        <sidebar-item v-for="route in routes" :key="route.path" :item="route" :base-path="route.path" />
+      </el-menu>
+    </el-scrollbar>
+  </div>
 </template>
 
-<script setup>
-import { ref } from 'vue'
+<script>
+import { mapGetters } from 'vuex'
+import Logo from './Logo'
+import SidebarItem from './SidebarItem'
+import variables from '@/styles/variables.scss'
 
-let logo_url = "../../../assets/logo.png";
-
-const tabPosition = ref('left')
-
-let panelArray = ref([{title:"首页", icon:"Check", active:true},{title:"Page0", icon:"Check"},{title:"Page1", icon:"Check"},{title:"Page2", icon:"Check"},])
-
-const onItemClick = (item)=>{
-
-    panelArray.value.forEach((panel) => {
-        panel.active = false;
-    });
-
-    item.active = true;
+export default {
+  components: { SidebarItem, Logo },
+  computed: {
+    ...mapGetters([
+      'sidebar'
+    ]),
+    routes() {
+      return this.$router.options.routes
+    },
+    activeMenu() {
+      const route = this.$route
+      const { meta, path } = route
+      // if set path, the sidebar will highlight the path you set
+      if (meta.activeMenu) {
+        return meta.activeMenu
+      }
+      return path
+    },
+    showLogo() {
+      return this.$store.state.settings.sidebarLogo
+    },
+    variables() {
+      return variables
+    },
+    isCollapse() {
+      return !this.sidebar.opened
+    }
+  }
 }
-
-
 </script>
-
-<style lang="scss" scoped>
-
-.tabs-button-box{
-    width: 64px;
-    height: 64px;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items:center;
-
-    margin:1px;
-}
-
-.tabs-button-item{
-    width: 54px;
-    height: 54px;
-    color: #eee;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items:center;    
-
-    font-size: 14px;
-    border-radius: 3px;
-}
-
-.tabs-button-item:hover{
-    background-color: rgba(24, 144, 255, 0.6);
-}
-
-.is-active {
-    background-color: rgb(24, 144, 255);
-}
-
-
-
-
-.side-bar{
-    height: 100%;
-    width: 170px;
-
-
-
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items:flex-start;
-}
-
-.app-logo{
-    width: 54px;
-    height:54px;
-}
-
-.list-box{
-    width:100%;
-    height: 100%;
-}
-
-.list-item{
-    width:100%;
-    height: 40px;
-    color: aquamarine;
-
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items:center;
-}
-
-.list-item:hover {
-    background-color: #708196;
-}
-
-</style>

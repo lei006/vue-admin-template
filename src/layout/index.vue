@@ -1,87 +1,93 @@
 <template>
-  <div class="app-wrapper" ref="tmp">
-    <div class="sidebar-container">
-        <Sidebar></Sidebar>
-    </div>
+  <div :class="classObj" class="app-wrapper">
+    <div v-if="device==='mobile'&&sidebar.opened" class="drawer-bg" @click="handleClickOutside" />
+    <sidebar class="sidebar-container" />
     <div class="main-container">
-        <div class="navbar-container">
-            <Navbar></Navbar>
-        </div>
-        <div class="appmain-container">
-            <AppMain></AppMain>
-        </div>
+      <div :class="{'fixed-header':fixedHeader}">
+        <navbar />
+      </div>
+      <app-main />
     </div>
   </div>
-
-
 </template>
 
-<script setup>
+<script>
+import { Navbar, Sidebar, AppMain } from './components'
+import ResizeMixin from './mixin/ResizeHandler'
 
-import {AppMain,Navbar,Sidebar} from './components/index'
-
-
-
-let obj = reactive({a:1,b:2,test:"awxxxxxxxxxxxx"});
-
-let {test} = toRefs(obj);
-
-let msg = ref("这是测试文本")
-
-let onSet = ()=>{
-    obj.a += 100;
-    msg.value = "文本有改变";
-    console.log(obj, msg)
-    test.value += "-";
+export default {
+  name: 'Layout',
+  components: {
+    Navbar,
+    Sidebar,
+    AppMain
+  },
+  mixins: [ResizeMixin],
+  computed: {
+    sidebar() {
+      return this.$store.state.app.sidebar
+    },
+    device() {
+      return this.$store.state.app.device
+    },
+    fixedHeader() {
+      return this.$store.state.settings.fixedHeader
+    },
+    classObj() {
+      return {
+        hideSidebar: !this.sidebar.opened,
+        openSidebar: this.sidebar.opened,
+        withoutAnimation: this.sidebar.withoutAnimation,
+        mobile: this.device === 'mobile'
+      }
+    }
+  },
+  methods: {
+    handleClickOutside() {
+      this.$store.dispatch('app/closeSideBar', { withoutAnimation: false })
+    }
+  }
 }
-//return {obj, onSet};
-
-onMounted(()=>{
-    console.log("onMounted")
-})
-
-let msgChange = computed(()=>{
-    return msg.value + "后坠" + test.value;
-})
-
 </script>
 
-
 <style lang="scss" scoped>
-  @import "../styles/variables.scss";
+  @import "~@/styles/mixin.scss";
+  @import "~@/styles/variables.scss";
 
-.app-wrapper{
+  .app-wrapper {
+    @include clearfix;
     position: relative;
     height: 100%;
     width: 100%;
-
-    display: flex;
-    flex-direction: row;
-}
-
-.sidebar-container{
-
-    height: 100%;
-}
-
-.main-container{
-    flex:1;
-    height: 100%;
-
-    display: flex;
-    flex-direction: column;
-}
-
-.navbar-container{
+    &.mobile.openSidebar{
+      position: fixed;
+      top: 0;
+    }
+  }
+  .drawer-bg {
+    background: #000;
+    opacity: 0.3;
     width: 100%;
-}
+    top: 0;
+    height: 100%;
+    position: absolute;
+    z-index: 999;
+  }
 
-.appmain-container{
+  .fixed-header {
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 9;
+    width: calc(100% - #{$sideBarWidth});
+    transition: width 0.28s;
+  }
+
+  .hideSidebar .fixed-header {
+    width: calc(100% - 54px)
+  }
+
+  .mobile .fixed-header {
     width: 100%;
-    flex:1;
-
-    overflow: hidden;
-}
-
-
+  }
 </style>
