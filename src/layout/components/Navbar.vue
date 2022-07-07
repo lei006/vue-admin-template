@@ -1,10 +1,13 @@
 <template>
   <div class="navbar">
-    <hamburger :is-active="sidebar.opened" class="hamburger-container" @toggleClick="toggleSideBar" />
-
+    <hamburger :is-active="sidebar.opened" class="hamburger-container not-allow-select" @toggleClick="toggleSideBar" />
     <breadcrumb class="breadcrumb-container" />
+    <div class="navbar-search-box">
+      
+      <el-input size="small" placeholder="请输入内容" suffix-icon="el-icon-search" v-model="inputSearchText"></el-input>
 
-    <div class="right-menu">
+    </div>
+    <div class="right-menu not-allow-select">
       <el-button v-if="storeLayout.testBtn" type="text" size="mini" class="system-menu-item" @click="onSwitchHideBtn">缩小</el-button>
       <el-button v-if="!storeLayout.testBtn" type="text" size="mini" class="system-menu-item" @click="onSwitchHideBtn">放大</el-button>
       <el-button v-if="storeLayout.testBtn" type="text" class="system-menu-item" size="mini">测试按钮1</el-button>
@@ -52,7 +55,8 @@ export default {
   },
   data() {
     return {
-      storeLayout: {}
+      storeLayout: {},
+      inputSearchText:"1111111111111"
     }
   },
   computed: {
@@ -82,11 +86,14 @@ export default {
 
 <style lang="scss" scoped>
 .navbar {
+  width:100%;
   height: 50px;
   overflow: hidden;
   position: relative;
-  background: #fff;
-  box-shadow: 0 1px 4px rgba(0,21,41,.08);
+  box-shadow: 0 1px 4px rgba(0,21,41,.18);
+
+  display: flex;
+  flex-direction: row;
 
   .hamburger-container {
     line-height: 46px;
@@ -104,9 +111,19 @@ export default {
   .breadcrumb-container {
     float: left;
   }
+  .navbar-search-box{
+    flex:1;
+    height: 100%;
+    
+    padding: 10px 40px 10px 40px;
+
+    display: flex;
+    justify-content:flex-start;
+    align-items: center;
+
+  }
 
   .right-menu {
-    float: right;
     height: 100%;
     line-height: 50px;
 

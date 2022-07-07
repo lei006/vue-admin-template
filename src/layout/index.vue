@@ -64,43 +64,21 @@ export default {
 
   .app-wrapper {
     @include clearfix;
-    position: relative;
     height: 100%;
     width: 100%;
 
     display: flex;
-    flex-direction: row;
-
   }
-  .drawer-bg {
-    background: #000;
-    opacity: 0.3;
-    width: 100%;
-    top: 0;
+  
+  .sidebar-container{
     height: 100%;
-    position: absolute;
-    z-index: 999;
+    width: 160px;
+    background-color: rgb(48,65,86);
   }
 
-  .fixed-header {
-    position: fixed;
-    top: 0;
-    right: 0;
-    z-index: 9;
-    width: calc(100% - #{$sideBarWidth});
-    transition: width 0.28s;
-  }
-
-  .hideSidebar .fixed-header {
-    width: calc(100% - 54px)
-  }
-
-  .mobile .fixed-header {
-    width: 100%;
-  }
 
   .main-container{
-    width: 100%;
+    flex:1;
     height: 100%;
 
     display: flex;
@@ -111,10 +89,13 @@ export default {
   .navbar-box{
     width: 100%;
     height: 50px;
+
+    background-color: #fafafa;
   }
   .tagbar-box{
     width: 100%;
     height: 30px;
+    background-color: #fafafa;
   }
   .app-main-box{
     width: 100%;

@@ -1,5 +1,5 @@
 <template>
-  <ul class="vab-theme-setting">
+  <ul class="vab-theme-setting not-allow-select">
 
     <li><a><i class="el-icon-share" /><p>主题配置</p></a></li>
     <li><a><i class="el-icon-phone" aria-hidden="true" /><p>随机换肤</p></a></li>
@@ -47,6 +47,7 @@ export default {
     padding: 10px 0 0 0;
     margin: 0;
     text-align: center;
+    color:#fff;
     cursor: pointer;
     background: var(--el-color-white);
     border: 1px solid #dcdfe6;

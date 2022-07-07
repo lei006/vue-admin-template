@@ -1,5 +1,5 @@
 <template>
-  <div :class="{'has-logo':showLogo}">
+  <div class="sidebar-context" :class="{'has-logo':showLogo}">
     <logo v-if="showLogo" :collapse="isCollapse" />
     <el-scrollbar wrap-class="scrollbar-wrapper">
       <el-menu
@@ -54,3 +54,16 @@ export default {
   }
 }
 </script>
+<style lang="scss" scoped>
+
+.scrollbar-wrapper{
+  flex:1;
+  width: 100%;
+}
+
+.sidebar-context{
+  width: 100%;
+  height:100%;
+}
+
+</style>
