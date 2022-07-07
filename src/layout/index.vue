@@ -66,6 +66,7 @@ export default {
     @include clearfix;
     height: 100%;
     width: 100%;
+    overflow: hidden;
 
     display: flex;
   }
@@ -83,7 +84,7 @@ export default {
 
     display: flex;
     flex-direction: column;
-
+    overflow: auto;
   }
 
   .navbar-box{
