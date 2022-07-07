@@ -33,11 +33,17 @@ Vue.use(ElementUI, { locale })
 // 如果想要中文版 element-ui，按如下方式声明
 // Vue.use(ElementUI)
 
+// 引入 pinia
+import { createPinia, PiniaVuePlugin } from 'pinia'
+Vue.use(PiniaVuePlugin)
+const pinia = createPinia()// 需要挂载在实例上
+
 Vue.config.productionTip = false
 
 new Vue({
   el: '#app',
   router,
+  pinia,
   store,
   render: h => h(App)
 })

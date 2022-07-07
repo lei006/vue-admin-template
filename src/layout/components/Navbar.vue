@@ -5,28 +5,35 @@
     <breadcrumb class="breadcrumb-container" />
 
     <div class="right-menu">
-      <el-dropdown class="avatar-container" trigger="click">
-        <div class="avatar-wrapper">
-          <img :src="avatar+'?imageView2/1/w/80/h/80'" class="user-avatar">
-          <i class="el-icon-caret-bottom" />
-        </div>
+      <el-button v-if="storeLayout.testBtn" type="text" size="mini" class="system-menu-item" @click="onSwitchHideBtn">缩小</el-button>
+      <el-button v-if="!storeLayout.testBtn" type="text" size="mini" class="system-menu-item" @click="onSwitchHideBtn">放大</el-button>
+      <el-button v-if="storeLayout.testBtn" type="text" class="system-menu-item"  size="mini">测试按钮1</el-button>
+      <el-button v-if="storeLayout.testBtn" type="text" class="system-menu-item"  size="mini">测试按钮2</el-button>
+      <el-button v-if="storeLayout.testBtn" type="text" class="system-menu-item"  size="mini">测试按钮3</el-button>
+      <el-button v-if="storeLayout.testBtn" type="text" class="system-menu-item"  size="mini">测试按钮4</el-button>
+      <div class="system-menu-item margin-right-mini">
+      <el-dropdown  trigger="click">
+        <el-button type="text" size="mini" >超小按钮</el-button>
         <el-dropdown-menu slot="dropdown" class="user-dropdown">
           <router-link to="/">
             <el-dropdown-item>
-              Home
+               个人中心
             </el-dropdown-item>
           </router-link>
+          <!--
           <a target="_blank" href="https://github.com/PanJiaChen/vue-admin-template/">
             <el-dropdown-item>Github</el-dropdown-item>
           </a>
           <a target="_blank" href="https://panjiachen.github.io/vue-element-admin-site/#/">
             <el-dropdown-item>Docs</el-dropdown-item>
           </a>
+          -->
           <el-dropdown-item divided @click.native="logout">
-            <span style="display:block;">Log Out</span>
+            <span style="display:block;">退出登录</span>
           </el-dropdown-item>
         </el-dropdown-menu>
       </el-dropdown>
+      </div>
     </div>
   </div>
 </template>
@@ -36,16 +43,27 @@ import { mapGetters } from 'vuex'
 import Breadcrumb from '@/components/Breadcrumb'
 import Hamburger from '@/components/Hamburger'
 
+import storeLayout from '../../store/layout' // storeId就是导出的那个值
+
 export default {
   components: {
     Breadcrumb,
     Hamburger
+  },
+  data() {
+    return {
+      storeLayout: {}
+    }
   },
   computed: {
     ...mapGetters([
       'sidebar',
       'avatar'
     ])
+  },
+  mounted() {
+    this.storeLayout = storeLayout()
+    console.log(this.storeLayout)
   },
   methods: {
     toggleSideBar() {
@@ -54,6 +72,9 @@ export default {
     async logout() {
       await this.$store.dispatch('user/logout')
       this.$router.push(`/login?redirect=${this.$route.fullPath}`)
+    },
+    onSwitchHideBtn() {
+      this.storeLayout.switchTestBtn()
     }
   }
 }
@@ -89,51 +110,17 @@ export default {
     height: 100%;
     line-height: 50px;
 
+    display: flex;
+    flex-direction: row;
+    justify-content:center;
+    align-items: center;
+
     &:focus {
       outline: none;
     }
-
-    .right-menu-item {
-      display: inline-block;
-      padding: 0 8px;
-      height: 100%;
-      font-size: 18px;
-      color: #5a5e66;
-      vertical-align: text-bottom;
-
-      &.hover-effect {
-        cursor: pointer;
-        transition: background .3s;
-
-        &:hover {
-          background: rgba(0, 0, 0, .025)
-        }
-      }
-    }
-
-    .avatar-container {
-      margin-right: 30px;
-
-      .avatar-wrapper {
-        margin-top: 5px;
-        position: relative;
-
-        .user-avatar {
-          cursor: pointer;
-          width: 40px;
-          height: 40px;
-          border-radius: 10px;
-        }
-
-        .el-icon-caret-bottom {
-          cursor: pointer;
-          position: absolute;
-          right: -20px;
-          top: 25px;
-          font-size: 12px;
-        }
-      }
-    }
+  }
+  .system-menu-item{
+    margin: 3px 3px;
   }
 }
 </style>
