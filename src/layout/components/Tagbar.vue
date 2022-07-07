@@ -1,12 +1,12 @@
 <template>
-    <el-tabs v-model="editableTabsValue" type="card" closable editable @tab-remove="removeTab" @edit="handleTabsEdit">
-      <el-tab-pane
-        v-for="(item, index) in editableTabs"
-        :key="item.name + index"
-        :label="item.title"
-        :name="item.name"
-      />
-    </el-tabs>
+  <el-tabs v-model="editableTabsValue" type="card" closable editable @tab-remove="removeTab" @edit="handleTabsEdit">
+    <el-tab-pane
+      v-for="(item, index) in editableTabs"
+      :key="item.name + index"
+      :label="item.title"
+      :name="item.name"
+    />
+  </el-tabs>
 </template>
 
 <script>

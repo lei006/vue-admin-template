@@ -67,10 +67,10 @@ export default {
     position: relative;
     height: 100%;
     width: 100%;
-    &.mobile.openSidebar{
-      position: fixed;
-      top: 0;
-    }
+
+    display: flex;
+    flex-direction: row;
+
   }
   .drawer-bg {
     background: #000;
@@ -99,16 +99,26 @@ export default {
     width: 100%;
   }
 
+  .main-container{
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+  }
+
   .navbar-box{
     width: 100%;
     height: 50px;
   }
   .tagbar-box{
     width: 100%;
-    height: 40px;
+    height: 30px;
   }
   .app-main-box{
     width: 100%;
     flex:1;
+    overflow: hidden;
   }
 </style>
