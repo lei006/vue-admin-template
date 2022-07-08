@@ -77,6 +77,9 @@ const onItemClick = (item)=>{
 
     font-size: 14px;
     border-radius: 3px;
+
+    transition: background-color .2s;
+
 }
 
 .tabs-button-item:hover{
