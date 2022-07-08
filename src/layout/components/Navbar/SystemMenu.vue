@@ -20,7 +20,7 @@
         <div class="item">
             <el-dropdown>
                 <span class="el-dropdown-link">
-                    <el-icon color="#409EFC" :size="25"><User /></el-icon>
+                    <el-link type="warning">warning</el-link>
                     <el-icon class="el-icon--right"><arrow-down /></el-icon>
                 </span>
                 <template #dropdown>
