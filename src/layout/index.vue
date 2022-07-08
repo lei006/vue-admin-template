@@ -3,23 +3,18 @@
     <div class="sidebar-container">
         <Sidebar></Sidebar>
     </div>
+
     <div class="main-container">
-        <div class="navbar-container">
-            <Navbar></Navbar>
-        </div>
-        <div class="appmain-container">
-            <AppMain></AppMain>
-        </div>
+        <Navbar></Navbar>
+        <AppMain></AppMain>
     </div>
   </div>
-
-
+  <FloatPanel></FloatPanel>
 </template>
 
 <script setup>
 
-import {AppMain,Navbar,Sidebar} from './components/index'
-
+import {AppMain,Navbar,Sidebar, FloatPanel} from './components/index'
 
 
 let obj = reactive({a:1,b:2,test:"awxxxxxxxxxxxx"});
@@ -60,27 +55,21 @@ let msgChange = computed(()=>{
 }
 
 .sidebar-container{
-
     height: 100%;
+    background-color: $sidebarBg;
+
+    border-right-style:solid;
+	border-right-width:1px;
+    border-right-color: #eee;
 }
 
 .main-container{
     flex:1;
     height: 100%;
+    background-color: $appMainBg;
 
     display: flex;
     flex-direction: column;
-}
-
-.navbar-container{
-    width: 100%;
-}
-
-.appmain-container{
-    width: 100%;
-    flex:1;
-
-    overflow: hidden;
 }
 
 

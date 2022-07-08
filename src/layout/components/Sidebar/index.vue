@@ -1,5 +1,5 @@
 <template>
-  <div class="side-bar">
+  <div class="side-bar" :style="{width:storeLayout.sideBarMinExten?'210px':'64px'}" >
     <el-tabs :tab-position="tabPosition" style="height: 100%" class="demo-tabs">
         <el-tab-pane label="Logo">
             <template v-slot:label>
@@ -26,6 +26,12 @@
 <script setup>
 import { ref } from 'vue'
 
+///////////////////////////////////
+// 布局状态引入..
+import layoutStore from '../../../store/layout'
+const storeLayout = layoutStore();
+
+
 let logo_url = "../../../assets/logo.png";
 
 const tabPosition = ref('left')
@@ -45,6 +51,7 @@ const onItemClick = (item)=>{
 </script>
 
 <style lang="scss" scoped>
+  @import "../../../styles/variables.scss";
 
 .tabs-button-box{
     width: 64px;
@@ -85,14 +92,13 @@ const onItemClick = (item)=>{
 
 .side-bar{
     height: 100%;
-    width: 170px;
-
-
 
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items:flex-start;
+
+    transition: width .2s;
 }
 
 .app-logo{

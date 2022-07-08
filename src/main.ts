@@ -9,6 +9,8 @@ import './styles/index.scss' // global css
 
 import router from "./router";
 import store from "./store";
+import { createPinia } from 'pinia'
+const pinia = createPinia()
 
 let app = createApp(App)
 
@@ -19,6 +21,7 @@ for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
     app.component(key, component)
 }
 
+app.use(pinia)
 app.use(router)
 app.use(store)
 app.use(ElementPlus);
