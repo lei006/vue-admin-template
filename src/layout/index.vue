@@ -1,10 +1,10 @@
 <template>
   <div class="app-wrapper" ref="tmp">
-    <div class="sidebar-container">
+    <div class="left-container">
         <Sidebar></Sidebar>
     </div>
 
-    <div class="main-container">
+    <div class="right-container">
         <Navbar></Navbar>
         <AppMain></AppMain>
     </div>
@@ -13,31 +13,7 @@
 </template>
 
 <script setup>
-
-import {AppMain,Navbar,Sidebar, FloatPanel} from './components/index'
-
-
-let obj = reactive({a:1,b:2,test:"awxxxxxxxxxxxx"});
-
-let {test} = toRefs(obj);
-
-let msg = ref("这是测试文本")
-
-let onSet = ()=>{
-    obj.a += 100;
-    msg.value = "文本有改变";
-    console.log(obj, msg)
-    test.value += "-";
-}
-//return {obj, onSet};
-
-onMounted(()=>{
-    console.log("onMounted")
-})
-
-let msgChange = computed(()=>{
-    return msg.value + "后坠" + test.value;
-})
+import {AppMain,Navbar,Sidebar, FloatPanel, TagsView} from './components/index'
 
 </script>
 
@@ -54,7 +30,7 @@ let msgChange = computed(()=>{
     flex-direction: row;
 }
 
-.sidebar-container{
+.left-container{
     height: 100%;
     background-color: $sidebarBg;
 
@@ -63,7 +39,7 @@ let msgChange = computed(()=>{
     border-right-color: #eee;
 }
 
-.main-container{
+.right-container{
     flex:1;
     height: 100%;
     background-color: $appMainBg;

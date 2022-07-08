@@ -7,7 +7,7 @@ const layoutStore = defineStore('layoutStore', {
       counter: 0,
       name: 'Eduardo',
       isAdmin: true,
-      sideBarMinExten:true,
+      sideBarMinExten:false,
       testBtn: false
     }
   },
