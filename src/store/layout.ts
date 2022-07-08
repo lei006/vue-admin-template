@@ -4,11 +4,8 @@ const layoutStore = defineStore('layoutStore', {
   // arrow function recommended for full type inference
   state: () => {
     return {
-      counter: 0,
-      name: 'Eduardo',
-      isAdmin: true,
       sideBarMinExten:false,
-      testBtn: false
+      sideBarStyle:"menu-tree",  //cascader 
     }
   },
   // 相当于 vue 中的 computed 计算属性
@@ -17,14 +14,17 @@ const layoutStore = defineStore('layoutStore', {
   },
   // 相当于 vue 中的 methods 方法
   actions: {
-    increment() {
-      this.counter++
-    },
-    hideTestBtn() {
-      this.testBtn = false
-    },
-    switchTestBtn() {
-      this.testBtn = !this.testBtn
+    setSideBarStyle(style : any){
+        if(style) {
+            this.sideBarStyle = style;
+        }else if(style === 'menu-tree'){
+            this.sideBarStyle = 'cascader';
+        }else if(style === 'cascader'){
+            this.sideBarStyle = 'menu-tree';
+        }else{
+            this.sideBarStyle = 'menu-tree';
+        }
+        console.log("this.sideBarStyle", this.sideBarStyle);
     },
     switchSidebarExten() {
       this.sideBarMinExten = !this.sideBarMinExten

@@ -7,9 +7,9 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: "/",
     component: Layout,
-    redirect: '/dashboard',
+    redirect: '/dashboard/index',
     children: [{
-        path: 'dashboard',
+        path: '/dashboard/index',
         name: 'Dashboard',
         component: () => import('../../views/dashboard/index.vue'),
         meta: { title: 'dashboard', icon: 'dashboard' }
@@ -20,20 +20,21 @@ const routes: Array<RouteRecordRaw> = [
     component: Layout,
     redirect: '/report/index',
     children: [{
-        path: 'index',
+        path: '/report/index',
         name: 'Report',
         component: () => import('../../views/report/index.vue'),
         meta: { title: '报告', icon: 'dashboard' }
     }]
   },
-  
   {
     path: "/about",
-    name: "about",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ "../../views/system/about/index.vue"),
+    component: Layout,
+    children: [{
+      path: '/about/index',
+      name: 'About',
+      component: () => import('../../views/system/about/index.vue'),
+      meta: { title: '报告', icon: 'dashboard' }
+    }]    
   },
 ];
 

@@ -1,30 +1,17 @@
 <template>
-  <div class="side-bar" :style="{width:storeLayout.sideBarMinExten?'210px':'64px'}" >
-    <el-tabs :tab-position="tabPosition" style="height: 100%" class="demo-tabs">
-        <el-tab-pane label="Logo">
-            <template v-slot:label>
-                <div class="tabs-button-box">
-                    <img class="app-logo" alt="Vue logo" src="../../../assets/logo.png" />
-                </div>
-            </template>
-        </el-tab-pane>
-        <el-tab-pane v-for="panel in panelArray" :key="panel" label="User">
-            <template v-slot:label>
-                <div class="tabs-button-box">
-                    <div class="tabs-button-item" :class="{'is-active':panel.active}" @click="onItemClick(panel)">
-                        <el-icon size="20px"><Apple /></el-icon>
-                        {{panel.title}}
-                    </div>
-                </div>
-            </template>
-
-        </el-tab-pane>
-    </el-tabs>
-</div>
+    <div class="side-bar" >
+        <Cascader v-if="storeLayout.sideBarStyle === 'menu-tree'"></Cascader>
+        <MenuTree v-if="storeLayout.sideBarStyle === 'cascader'"></MenuTree>
+    </div>
 </template>
 
 <script setup>
 import { ref } from 'vue'
+
+///////////////////////////////////
+// 子组件引入..
+import Cascader from './cascader.vue'
+import MenuTree from './MenuTree.vue'
 
 ///////////////////////////////////
 // 布局状态引入..
@@ -32,20 +19,11 @@ import layoutStore from '../../../store/layout'
 const storeLayout = layoutStore();
 
 
-let logo_url = "../../../assets/logo.png";
-
-const tabPosition = ref('left')
-
-let panelArray = ref([{title:"首页", icon:"Check", active:true},{title:"Page0", icon:"Check"},{title:"Page1", icon:"Check"},{title:"Page2", icon:"Check"},])
-
-const onItemClick = (item)=>{
-
-    panelArray.value.forEach((panel) => {
-        panel.active = false;
-    });
-
-    item.active = true;
-}
+///////////////////////////////////
+// 路由列表
+import { useRouter } from 'vue-router';
+const router = useRouter();
+console.log(router)
 
 
 </script>
@@ -101,7 +79,9 @@ const onItemClick = (item)=>{
     justify-content: flex-start;
     align-items:flex-start;
 
-    transition: width .2s;
+    //background-color: rgb(67, 74, 80);
+    background-color: #282a34;
+
 }
 
 .app-logo{

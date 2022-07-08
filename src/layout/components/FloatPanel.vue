@@ -1,6 +1,6 @@
 <template>
   <ul class="vab-theme-setting not-allow-select">
-    <li><a><el-icon class="icon"><Histogram /></el-icon><p>主题配置</p></a></li>
+    <li><a @click="onClickSwitchSidebarStyle"><el-icon class="icon"><Histogram /></el-icon><p>侧边布局</p></a></li>
     <li><a><el-icon class="icon"><Histogram /></el-icon><p>随机换肤</p></a></li>
     <li><a><el-icon class="icon"><Histogram /></el-icon><p>购买源码</p></a></li>
     <li><a><el-icon class="icon"><Histogram /></el-icon><p>拷贝源码</p></a></li>
@@ -9,14 +9,25 @@
 
 </template>
 
-<script>
+<script setup>
 
-export default {
-
-  methods: {
-
-  }
+///////////////////////////////////
+// 布局状态，切换
+import layoutStore from '../../store/layout'
+const storeLayout = layoutStore();
+const onClickSwitchSidebarStyle = ()=>{
+    if(storeLayout.sideBarStyle === 'cascader'){
+        storeLayout.setSideBarStyle('menu-tree');
+    }
+    else if(storeLayout.sideBarStyle === 'menu-tree'){
+        storeLayout.setSideBarStyle('cascader');
+    }
 }
+
+
+
+
+
 </script>
 
 <style lang="scss" scoped>

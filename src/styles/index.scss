@@ -63,3 +63,11 @@ div:focus {
 .app-container {
   padding: 20px;
 }
+
+
+.not-allow-select{
+  -webkit-user-select:none;
+  -moz-user-select:none;
+  -ms-user-select:none;
+  user-select:none;
+}
