@@ -4,8 +4,9 @@ const layoutStore = defineStore('layoutStore', {
   // arrow function recommended for full type inference
   state: () => {
     return {
-      sideBarMinExten:false,
+      sideBarIsCollapse:false,
       sideBarStyle:"menu-tree",  //cascader 
+      appLogoShow:true,
     }
   },
   // 相当于 vue 中的 computed 计算属性
@@ -27,7 +28,7 @@ const layoutStore = defineStore('layoutStore', {
         console.log("this.sideBarStyle", this.sideBarStyle);
     },
     switchSidebarExten() {
-      this.sideBarMinExten = !this.sideBarMinExten
+      this.sideBarIsCollapse = !this.sideBarIsCollapse
     }
   }
 })

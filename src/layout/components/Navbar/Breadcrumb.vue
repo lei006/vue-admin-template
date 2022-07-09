@@ -1,8 +1,8 @@
 <template>
     <div class="container">
         <div class="zoom" @click="onClickSwitchSidebarHide">
-            <el-icon v-if="storeLayout.sideBarMinExten"><ArrowLeftBold /></el-icon>
-            <el-icon v-if="!storeLayout.sideBarMinExten"><ArrowRightBold /></el-icon>
+            <el-icon v-if="storeLayout.sideBarIsCollapse"><ArrowLeftBold /></el-icon>
+            <el-icon v-if="!storeLayout.sideBarIsCollapse"><ArrowRightBold /></el-icon>
         </div>
         <el-breadcrumb separator="/">
             <el-breadcrumb-item :to="{ path: '/' }">homepage</el-breadcrumb-item>

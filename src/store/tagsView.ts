@@ -7,7 +7,7 @@ const tagsViewStore = defineStore('tagsViewStore', {
       counter: 0,
       name: 'Eduardo',
       isAdmin: true,
-      sideBarMinExten:false,
+      sideBarIsCollapse:false,
       testBtn: false
     }
   },
@@ -27,7 +27,7 @@ const tagsViewStore = defineStore('tagsViewStore', {
       this.testBtn = !this.testBtn
     },
     switchSidebarExten() {
-      this.sideBarMinExten = !this.sideBarMinExten
+      this.sideBarIsCollapse = !this.sideBarIsCollapse
     }
   }
 })

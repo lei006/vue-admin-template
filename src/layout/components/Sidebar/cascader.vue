@@ -1,12 +1,5 @@
 <template>
     <el-tabs :tab-position="tabPosition" style="height: 100%" class="demo-tabs">
-        <el-tab-pane label="Logo">
-            <template v-slot:label>
-                <div class="tabs-button-box">
-                    <img class="app-logo" alt="Vue logo" src="../../../assets/logo.png" />
-                </div>
-            </template>
-        </el-tab-pane>
         <el-tab-pane v-for="panel in panelArray" :key="panel" label="User">
             <template v-slot:label>
                 <div class="tabs-button-box">
@@ -39,6 +32,12 @@ const onItemClick = (item)=>{
     item.active = true;
 }
 
+///////////////////////////////////
+// 父值传入
+const props = defineProps({
+    collapse:Boolean,
+})
+const {collapse} = toRefs(props)
 
 
 
@@ -85,44 +84,6 @@ const onItemClick = (item)=>{
     background-color: rgb(24, 144, 255);
 }
 
-
-
-
-.side-bar{
-    height: 100%;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items:flex-start;
-
-    transition: width .2s;
-}
-
-.app-logo{
-    width: 54px;
-    height:54px;
-}
-
-.list-box{
-    width:100%;
-    height: 100%;
-}
-
-.list-item{
-    width:100%;
-    height: 40px;
-    color: aquamarine;
-
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items:center;
-}
-
-.list-item:hover {
-    background-color: #708196;
-}
 
 </style>
 

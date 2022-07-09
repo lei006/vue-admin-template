@@ -1,7 +1,12 @@
 <template>
-    <div class="side-bar" >
-        <Cascader v-if="storeLayout.sideBarStyle === 'menu-tree'"></Cascader>
-        <MenuTree v-if="storeLayout.sideBarStyle === 'cascader'"></MenuTree>
+    <div class="container" >
+        <div class="logo">
+            <AppLogo  :collapse="!sideBarIsCollapse" v-if="storeLayout.appLogoShow === true"></AppLogo>
+        </div>
+        <div class="router">
+            <Cascader :collapse="!sideBarIsCollapse" v-if="storeLayout.sideBarStyle === 'menu-tree'"></Cascader>
+            <MenuTree :collapse="!sideBarIsCollapse" v-if="storeLayout.sideBarStyle === 'cascader'"></MenuTree>
+        </div>
     </div>
 </template>
 
@@ -12,11 +17,14 @@ import { ref } from 'vue'
 // 子组件引入..
 import Cascader from './cascader.vue'
 import MenuTree from './MenuTree.vue'
+import AppLogo from './logo.vue'
 
 ///////////////////////////////////
 // 布局状态引入..
 import layoutStore from '../../../store/layout'
 const storeLayout = layoutStore();
+
+const {sideBarIsCollapse} = toRefs(storeLayout)
 
 
 ///////////////////////////////////
@@ -31,47 +39,8 @@ console.log(router)
 <style lang="scss" scoped>
   @import "../../../styles/variables.scss";
 
-.tabs-button-box{
-    width: 64px;
-    height: 64px;
 
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items:center;
-
-    margin:1px;
-}
-
-.tabs-button-item{
-    width: 54px;
-    height: 54px;
-    color: #eee;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items:center;    
-
-    font-size: 14px;
-    border-radius: 3px;
-
-    transition: background-color .2s;
-
-}
-
-.tabs-button-item:hover{
-    background-color: rgba(24, 144, 255, 0.6);
-}
-
-.is-active {
-    background-color: rgb(24, 144, 255);
-}
-
-
-
-
-.side-bar{
+.container{
     height: 100%;
 
     display: flex;
@@ -81,32 +50,18 @@ console.log(router)
 
     //background-color: rgb(67, 74, 80);
     background-color: #282a34;
-
 }
 
-.app-logo{
-    width: 54px;
-    height:54px;
-}
-
-.list-box{
+.container .logo{
+    height:64px;
     width:100%;
-    height: 100%;
 }
-
-.list-item{
+.container .router{
+    flex:1;
     width:100%;
-    height: 40px;
-    color: aquamarine;
-
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items:center;
 }
 
-.list-item:hover {
-    background-color: #708196;
-}
+
+
 
 </style>
