@@ -27,13 +27,6 @@ const storeLayout = layoutStore();
 const {sideBarIsCollapse} = toRefs(storeLayout)
 
 
-///////////////////////////////////
-// 路由列表
-import { useRouter } from 'vue-router';
-const router = useRouter();
-console.log(router)
-
-
 </script>
 
 <style lang="scss" scoped>
