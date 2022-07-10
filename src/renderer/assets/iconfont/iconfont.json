@@ -1,0 +1,114 @@
+{
+  "id": "3485231",
+  "name": "electron-模板图标",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "1323276",
+      "name": "账号异常",
+      "font_class": "gaojingxinxi",
+      "unicode": "e611",
+      "unicode_decimal": 58897
+    },
+    {
+      "icon_id": "5961323",
+      "name": "运行",
+      "font_class": "yunhang",
+      "unicode": "ec61",
+      "unicode_decimal": 60513
+    },
+    {
+      "icon_id": "7404678",
+      "name": "故障状态",
+      "font_class": "guzhangzhuangtai",
+      "unicode": "e795",
+      "unicode_decimal": 59285
+    },
+    {
+      "icon_id": "8242801",
+      "name": "异常管理",
+      "font_class": "yichangguanli",
+      "unicode": "e682",
+      "unicode_decimal": 59010
+    },
+    {
+      "icon_id": "12771505",
+      "name": "运行",
+      "font_class": "yunhang1",
+      "unicode": "e61b",
+      "unicode_decimal": 58907
+    },
+    {
+      "icon_id": "15473054",
+      "name": "异常_危险",
+      "font_class": "yichang_weixian",
+      "unicode": "e660",
+      "unicode_decimal": 58976
+    },
+    {
+      "icon_id": "15726988",
+      "name": "运行",
+      "font_class": "yunhang2",
+      "unicode": "e65d",
+      "unicode_decimal": 58973
+    },
+    {
+      "icon_id": "18176601",
+      "name": "停止",
+      "font_class": "stop-circle",
+      "unicode": "ea91",
+      "unicode_decimal": 60049
+    },
+    {
+      "icon_id": "18176602",
+      "name": "停止",
+      "font_class": "stop-circle-full",
+      "unicode": "ea92",
+      "unicode_decimal": 60050
+    },
+    {
+      "icon_id": "752675",
+      "name": "setup",
+      "font_class": "0701shezhi",
+      "unicode": "e618",
+      "unicode_decimal": 58904
+    },
+    {
+      "icon_id": "1463641",
+      "name": "设置",
+      "font_class": "Set-up",
+      "unicode": "e615",
+      "unicode_decimal": 58901
+    },
+    {
+      "icon_id": "11420378",
+      "name": "un-setup-o",
+      "font_class": "un-setup-o",
+      "unicode": "e6ba",
+      "unicode_decimal": 59066
+    },
+    {
+      "icon_id": "11792270",
+      "name": "setup",
+      "font_class": "setup",
+      "unicode": "e60c",
+      "unicode_decimal": 58892
+    },
+    {
+      "icon_id": "11891810",
+      "name": "setup",
+      "font_class": "setup1",
+      "unicode": "e672",
+      "unicode_decimal": 58994
+    },
+    {
+      "icon_id": "15167614",
+      "name": "setup",
+      "font_class": "setup2",
+      "unicode": "e652",
+      "unicode_decimal": 58962
+    }
+  ]
+}
