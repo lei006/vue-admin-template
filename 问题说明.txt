@@ -1,0 +1,1 @@
+1. main/index.js 不能用es6 有人说 electron 不支持 有办法解决，但我没有找到。只好用 vue2
