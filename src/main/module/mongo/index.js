@@ -15,7 +15,6 @@ function db_server_start(port, path, callback) {
     child_process.unref();
 
     child_process.on('exit', (code) => {
-        child_process = undefined;
         if(callback) {
             callback({state:"stoped", pid:child_process.pid, code, port, path, command, args});
         }
