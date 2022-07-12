@@ -9,9 +9,9 @@
 
     <div class="navbar-system-control">
       <el-breadcrumb class="app-breadcrumb" separator="/">
-        <SystemButton01 text="设置"><span class="icon iconfont icon-un-setup-o"></span></SystemButton01>
-        <SystemButton01 text="登录"><span class="icon iconfont icon-un-setup-o"></span></SystemButton01>
-        <SystemButton00><span class="icon iconfont icon-un-setup-o"></span></SystemButton00>
+        <SystemButton01 text="设置" @click="onToRouter1('/page01/index')"><span class="icon iconfont icon-un-setup-o"></span></SystemButton01>
+        <SystemButton01 text="登录" @click="onToRouter1('/page02/index')"><span class="icon iconfont icon-un-setup-o"></span></SystemButton01>
+
         <SystemButton00 @click="onBtnMini">─</SystemButton00>
         <SystemButton00 @click="onBtnExit">✖</SystemButton00>
       </el-breadcrumb>
@@ -64,6 +64,9 @@ export default {
     onBtnExit() {
       ipcRenderer.send('app-exit') // prints "pong"
     },
+    onToRouter1(path){
+        this.$router.push({path})
+    }
 
   }
 }
