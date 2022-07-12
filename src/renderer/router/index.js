@@ -63,6 +63,18 @@ export const constantRoutes = [
   },
 
   {
+    path: '/extensions',
+    component: Layout,
+    redirect: '/extensions/index',
+    children: [{
+      path: 'index',
+      name: 'Extensions',
+      component: () => import('@/views/extensions/index'),
+      meta: { title: '扩展', icon: 'dashboard' }
+    }]
+  },
+
+  {
     path: '/page01',
     component: Layout,
     redirect: '/page01/index',

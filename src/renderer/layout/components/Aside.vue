@@ -3,8 +3,9 @@
 
     <div class="aside-button-group">
       <SystemButton02 text="影像" @click="onToRouter1('/')"><span class="icon iconfont icon-un-setup-o"></span></SystemButton02>
-      <SystemButton02 text="模板" @click="onToRouter1('/page01')"><span class="icon iconfont icon-un-setup-o"></span></SystemButton02>
-      <SystemButton02 text="好友" @click="onToRouter1('/page02')"><span class="icon iconfont icon-un-setup-o"></span></SystemButton02>
+      <SystemButton02 text="页面1" @click="onToRouter1('/page01')"><span class="icon iconfont icon-un-setup-o"></span></SystemButton02>
+      <SystemButton02 text="页面2" @click="onToRouter1('/page02')"><span class="icon iconfont icon-un-setup-o"></span></SystemButton02>
+      <SystemButton02 text="扩展" @click="onToRouter1('/extensions')"><span class="icon iconfont icon-un-setup-o"></span></SystemButton02>
       <SystemButton02 text="example" @click="onToRouter1('/example')"><span class="icon iconfont icon-un-setup-o"></span></SystemButton02>
       <SystemButton02 text="登录" @click="onToRouter1('/login')"><span class="icon iconfont icon-un-setup-o"></span></SystemButton02>
     </div>
@@ -12,8 +13,8 @@
     <div class="aside-button-ex-group">
       <el-divider></el-divider>
       <SystemButton02 text="我试"><span class="icon iconfont icon-un-setup-o"></span></SystemButton02>
-      <SystemButton02 text="我是测试"><span class="icon iconfont icon-un-setup-o"></span></SystemButton02>
-      <SystemButton02 text="我是试"><span class="icon iconfont icon-un-setup-o"></span></SystemButton02>
+      <SystemButton02 text="扩展" @click="onToRouter1('/extensions')"><span class="icon iconfont icon-un-setup-o"></span></SystemButton02>
+      <SystemButton02 text="我测试"><span class="icon iconfont icon-un-setup-o"></span></SystemButton02>
     </div>
   </div>
 </template>
