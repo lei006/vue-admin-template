@@ -8,7 +8,6 @@
 
 <script>
 
-import storeId from '@/store/index'  //storeId就是导出的那个值
 
 export default {
   name: 'page01',
@@ -21,7 +20,6 @@ export default {
   },
   
   mounted(){
-    this.ustoreId = storeId();
   },
   methods: {
     fetchData() {
