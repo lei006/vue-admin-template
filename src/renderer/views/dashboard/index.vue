@@ -1,24 +1,20 @@
 <template>
   <div class="dashboard-container">
     <div class="dashboard-text">name: {{ name }}</div>
-    <div v-for="count in 136" :key="count">{{count}}==========</div>
   </div>
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 
 export default {
   name: 'Dashboard',
-  data(){
-    return {
-      name:"",
-      count:1,
-    }
+  computed: {
+    ...mapGetters([
+      'name'
+    ])
   }
-
 }
-
-
 </script>
 
 <style lang="scss" scoped>
